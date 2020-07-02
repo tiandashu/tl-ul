@@ -30,8 +30,21 @@ module.exports = {
         }
       },
       {
-        test: /\.vue$/,
-        loader: 'vue-loader',
+        test:/\.vue$/,
+        use:['vue-loader']
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader','css-loader']
+      },
+      {
+        test: /\.scss$/,
+        use: ['style-loader','css-loader', {
+          loader: 'postcss-loader',
+          options: {
+            plugins: [require('autoprefixer')]
+          }
+        }, 'sass-loader']
       },
     ]
   },

@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    app
-    <tl-button>ok</tl-button>
+    <tl-button type="success"></tl-button>
   </div>
 </template>
 

@@ -25,15 +25,30 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /.vue$/,
+        test: /\.(js|jsx)$/,
         use: {
-          loader: "vue-loader",
+          loader: 'babel-loader',
           options: {
-            compilerOptions: {
-              preserveWhitespace: false
-            },
+            presets: ['@babel/preset-env']
           }
         }
+      },
+      {
+        test:/\.vue$/,
+        use:['vue-loader']
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader','css-loader']
+      },
+      {
+        test: /\.scss$/,
+        use: ['style-loader','css-loader', {
+          loader: 'postcss-loader',
+          options: {
+            plugins: [require('autoprefixer')]
+          }
+        }, 'sass-loader']
       },
     ]
   },
