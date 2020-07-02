@@ -1,9 +1,8 @@
 const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const config = require('./config');
-const { loadavg } = require('os');
 const resolve = src => path.resolve(__dirname, src)
-
+const WebpackBar = require('webpackbar')
 module.exports = {
   mode: 'production',
   entry: {
@@ -39,6 +38,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new WebpackBar()
   ]
 }
